@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -7,23 +8,56 @@ public class Main {
 
         Scanner cs = new Scanner(System.in);
 
-        String[][][][] tablero = new String[3][3][3][3];
+        int[][][][] sudoku = new int[3][3][3][3];
 
-        for (int i = 0; i < tablero.length; i++) {
-            for (int j = 0; j < tablero[i].length; j++) {
-                for (int k = 0; k < tablero[i][j].length; k++) {
-                    for (int l = 0; l < tablero[i][j][k].length; l++) {
+        inicializarSudoku(sudoku);
 
-                        tablero[i][j][k][l] = "-";
-                        System.out.print(tablero[i][j][k][l] + "  ");
+    }
+
+    public static void imprimirSudoku(int[][][][] sudoku) {
+
+        for (int i = 0; i < sudoku.length; i++) {
+            for (int j = 0; j < sudoku[i].length; j++) {
+                for (int k = 0; k < sudoku[i][j].length; k++) {
+                    for (int l = 0; l < sudoku[i][j][k].length; l++) {
+
+                        System.out.print(sudoku[i][j][k][l] + "  ");
 
                     }
-                    System.out.print("   ");
+                    System.out.print("  ");
                 }
                 System.out.println();
             }
             System.out.println();
         }
+
+    }
+
+    public static void inicializarSudoku(int[][][][] sudoku) {
+
+        Random random = new Random();
+        int num;
+        int[] posiciones = new int[4];
+
+        for (int i = 0; i < sudoku.length; i++) {
+            for (int j = 0; j < sudoku[i].length; j++) {
+                for (int k = 0; k < sudoku[i][j].length; k++) {
+                    for (int l = 0; l < sudoku[i][j][k].length; l++) {
+
+                        sudoku[i][j][k][l] = 0;
+
+                    }
+                }
+            }
+        }
+
+        do {
+            posiciones = posRandom(posiciones);
+        } while ();
+
+    }
+
+    public static int[] posRandom(int[] posiciones) {
 
     }
 
