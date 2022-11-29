@@ -58,9 +58,13 @@ public class Main {
                     for (int l = 0; l < sudoku[i][j][k].length; l++) {
                         do {
                             pos = random.nextInt(numeros.length);
-                            sudoku[i][j][k][l] = numeros[pos];
-                            numeros = quitarNumero(numeros, pos);
-                        } while ();
+                            if (sePuede(sudoku, numeros, pos)) {
+                                sudoku[i][j][k][l] = numeros[pos];
+                                if (numeros.length != 1) {
+                                    numeros = quitarNumero(numeros, pos);
+                                }
+                            }
+                        } while (!sePuede(sudoku, numeros, pos));
                     }
                 }
             }
@@ -102,4 +106,20 @@ public class Main {
         return newNumeros;
     }
 
+    public static boolean sePuede(int[][][][] sudoku, int[] numeros, int pos) {
+
+        for (int i = 0; i < sudoku.length; i++) {
+            for (int j = 0; j < sudoku[i].length; j++) {
+                for (int k = 0; k < sudoku[i][j].length; k++) {
+                    for (int l = 0; l < sudoku[i][j][k].length; l++) {
+
+                        if ()
+
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
 }
